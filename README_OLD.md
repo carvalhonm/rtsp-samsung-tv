@@ -40,17 +40,17 @@ open ```http:\\<SERVER_IP>:3004``` (Default Login: **admin**, Default Password: 
 
 # Run Inside docker container
 ```
-docker run --name=rtsp-samsung-tv  -p 3004:3004 -p 9999-10004:9999-10004  rtsp-samsung-tv:1.0.0
+docker run -d --name=rtsp-samsung-tv  -p 3004:3004 -p 9999-10004:9999-10004  --restart=always vassio/rtsp-samsung-tv:latest
 ```
 ## Configuration on Host:
 ```
 echo "{}" >/opt/channels.json
-docker run -d --name=rtsp-samsung-tv  -p 3004:3004 -p 9999-10004:9999-10004  -v /opt/channels.json:/opt/config/channels.json rtsp-samsung-tv:1.0.0
+docker run -d --name=rtsp-samsung-tv  -p 3004:3004 -p 9999-10004:9999-10004  -v /opt/channels.json:/opt/config/channels.json --restart=always vassio/rtsp-samsung-tv:latest
 ```
 ## Keycloak Protection
 ```
 echo "{}" >/opt/channels.json
-docker run -d --name=rtsp-samsung-tv  -p 3004:3004 -p 9999-10004:9999-10004  -v /opt/channels.json:/opt/config/channels.json -v  `pwd`/keycloak.json:/opt/config/keycloak.json rtsp-samsung-tv:1.0.0
+docker run -d --name=rtsp-samsung-tv  -p 3004:3004 -p 9999-10004:9999-10004  -v /opt/channels.json:/opt/config/channels.json -v  `pwd`/keycloak.json:/opt/config/keycloak.json --restart=always vassio/rtsp-samsung-tv:latest
 ```
 
 

@@ -21,12 +21,9 @@
 <script type="text/javascript">
     getInfo(function (resp) {
         var mode = resp.mode;
+        var wsPort = window.localStorage.getItem('SERVER.WSPORT');
         var num = 1;
-        if (mode === 4) {
-            num = 2;
-        } else if (mode === 16) {
-            num = 4;
-        }
+
         var table = document.getElementById("canvas");
         var trs = [];
         var tds = [];
@@ -40,7 +37,7 @@
         trs.push('<tr>' + tds.join('\n') + '</tr>');
         table.innerHTML = trs.join('\n');
         for (var _i = 0; _i < mode; _i++) {
-            var url = 'ws://' + serverInfo.ip + ':' + (9999 + _i);
+            var url = 'ws://' + serverInfo.ip + ':' + (serverInfo.wsPort);
             new JSMpeg.Player(url, {
                 canvas: document.getElementById('canvas' + (_i + 1))
             });

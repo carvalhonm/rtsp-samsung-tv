@@ -32,3 +32,4 @@ userChannels.json
 .currentChannel
 keycloak.json
 
+docker-compose.yml

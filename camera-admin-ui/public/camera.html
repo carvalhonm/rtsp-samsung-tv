@@ -66,12 +66,8 @@
 <script type="text/javascript">
     reload(() => getInfo((resp) => {
         const mode = resp.mode;
+        const wsPort = resp.wsPort;
         let num = 1;
-        if (mode === 4) {
-            num = 2;
-        } else if (mode === 16) {
-            num = 4;
-        }
         const table = document.getElementById("canvas");
         const trs = [];
         let tds = [];
@@ -85,7 +81,7 @@
         trs.push('<tr>' + tds.join('\n') + '</tr>');
         table.innerHTML = trs.join('\n')
         for (let i = 0; i < mode; i++) {
-            const url = 'ws://' + serverInfo.ip + ':' + (9999 + i);
+            const url = 'ws://' + serverInfo.ip + ':' + wsPort;
             new JSMpeg.Player(url, {
                 canvas: document.getElementById('canvas' + (i + 1))
             })

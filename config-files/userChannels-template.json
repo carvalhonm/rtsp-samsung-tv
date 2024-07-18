@@ -1,0 +1,29 @@
+{
+  "channels": [
+    {
+      "streamUrl": "{{ streamUrl }}",
+      "ffmpeg": {},
+      "ffmpegPre": {}
+    }
+  ],
+  "killAll": true,
+  "ffmpeg": {
+    "-nostats": "",
+    "-r": 30,
+    "-loglevel": "quiet",
+    "-f": "mpegts",
+    "-codec:v": "mpeg1video"
+  },
+  "ffmpegPre": {
+    "-rtsp_transport": "udp"
+  },
+  "transport": "udp",
+  "users": [
+    {
+      "userId": 0,
+      "username": "admin",
+      "password": "teste"
+    }
+  ],
+  "connectionType": "local"
+}
