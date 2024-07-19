@@ -15,6 +15,10 @@ if ! command -v jq &> /dev/null; then
 fi
 
 # Define paths
+#CONFIG_FILE="/opt/rtsp-samsung-tv/config-files/streams.yml"
+#JSON_TEMPLATE="/opt/rtsp-samsung-tv/config-files/userChannels-template.json"
+#OUTPUT_DIR="/opt/rtsp-samsung-tv/config-files/generated_configs"
+#COMPOSE_FILE="/opt/rtsp-samsung-tv/docker-compose.yml"
 CONFIG_FILE="./config-files/streams.yml"
 JSON_TEMPLATE="./config-files/userChannels-template.json"
 OUTPUT_DIR="./config-files/generated_configs"

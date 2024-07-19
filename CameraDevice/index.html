@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<table  id="canvas"  BGCOLOR="#000000" BORDER=0 CELLSPACING=0 CELLPADDING=0>
+<table id="canvas" BGCOLOR="#000000" BORDER=0 CELLSPACING=0 CELLPADDING=0>
 </table>
 </body>
 <script type="text/javascript" src="jsmpeg.min.js"></script>
@@ -32,7 +32,7 @@
                 trs.push('<tr>' + tds.join('\n') + '</tr>');
                 tds = [];
             }
-            tds.push('<td> <canvas id="canvas' + i + '"/> </td>');
+            tds.push('<td> <canvas id="canvas' + i + '" width="1920" height="1080" /> </td>');
         }
         trs.push('<tr>' + tds.join('\n') + '</tr>');
         table.innerHTML = trs.join('\n');

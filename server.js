@@ -167,7 +167,7 @@ function readCurrentChannel() {
   } else {
     currentChannel = 0;
     width = 1920;
-    width = 1080;
+    height = 1080;
   }
 }
 
@@ -270,7 +270,7 @@ async function recreateStream() {
           name: `${currentChannel} ${i}`,
           streamUrl: Array.isArray(selectChannel.streamUrl)
             ? selectChannel.streamUrl[i] : selectChannel.streamUrl,
-          wsPort: 9999 + i,
+          wsPort: process.env.WS_PORT || (9999 + i), // Modified line
           ffmpegOptions,
           ffmpegPreOptions,
         });

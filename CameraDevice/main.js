@@ -8,7 +8,8 @@
 var serverInfo = {
   ip: localStorage.getItem('SERVER.IP') || '0.0.0.0', // <-- Server IP
   port: localStorage.getItem('SERVER.PORT') || '3004',
-  inited: localStorage.getItem('SERVER.INITED') || false
+  inited: localStorage.getItem('SERVER.INITED') || false,
+  wsPort: localStorage.getItem('SERVER.WSPORT') || '9999'
 };
 
 var queue = [];
@@ -26,11 +27,11 @@ var next = function next() {
         console.log(xhr.responseText);
         location.reload();
       } else {
-        console, error('There was a problem with the request.');
+        console.error('There was a problem with the request.');
       }
     }
   };
-  xhr.onerror = function (e) {
+  xhr.onerror = function () {
     console.error(xhr.statusText);
   };
   xhr.send(null);
@@ -45,17 +46,17 @@ var prev = function prev() {
         console.log(xhr.responseText);
         location.reload();
       } else {
-        console, error('There was a problem with the request.');
+        console.error('There was a problem with the request.');
       }
     }
   };
-  xhr.onerror = function (e) {
+  xhr.onerror = function () {
     console.error(xhr.statusText);
   };
   xhr.send(null);
 };
 
-var getInfo = function getInfo(callback, error) {
+var getInfo = function getInfo(callback) {
   if (!serverInfo.inited) {
     window.location.href = '/server.html';
   } else {
@@ -73,7 +74,7 @@ var getInfo = function getInfo(callback, error) {
           }
         }
       };
-      xhr.onerror = function (e) {
+      xhr.onerror = function () {
         window.location.href = '/server.html';
         console.error(xhr.statusText);
       };
@@ -99,7 +100,7 @@ var reload = function reload() {
           }
         }
       };
-      xhr.onerror = function (e) {
+      xhr.onerror = function () {
         console.error(xhr.statusText);
       };
       xhr.send();
@@ -132,7 +133,7 @@ var sel0 = function sel0(c) {
       }
     }
   };
-  xhr.onerror = function (e) {
+  xhr.onerror = function () {
     console.error(xhr.statusText);
   };
   xhr.send(null);

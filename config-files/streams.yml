@@ -1,0 +1,10 @@
+containers:
+  - name: rtsp-samsung-tv1
+    streamUrl: "rtsp://62.109.19.230:554/iloveyou"
+    webPort: 3001
+    wsPort: 9991
+  - name: rtsp-samsung-tv2
+    streamUrl: "rtsp://service:Bosch_55555@192.168.71.18/inst=2"
+    webPort: 3002
+    wsPort: 9992
+
